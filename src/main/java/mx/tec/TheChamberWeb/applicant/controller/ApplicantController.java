@@ -1,16 +1,18 @@
-package mx.tec.TheChamberWeb.gamer.controller;
+package mx.tec.TheChamberWeb.applicant.controller;
 
 
-import mx.tec.TheChamberWeb.gamer.dao.GamerIdentDao;
-import mx.tec.TheChamberWeb.gamer.model.Gamer;
+import mx.tec.TheChamberWeb.applicant.dao.ApplicantDao;
+import mx.tec.TheChamberWeb.applicant.model.Applicant;
 
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import java.io.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-
-@WebServlet(name = "GamerController", value = "/gidReg")
-public class GamerController extends HttpServlet {
+@WebServlet(name = "GamerIdentController", value = "/gidReg")
+public class ApplicantController extends HttpServlet {
     private String message;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -33,11 +35,11 @@ public class GamerController extends HttpServlet {
         String curp = request.getParameter("curp");
 
         if(password.equals(password2)){
-            GamerIdentDao gamerIdentDao = new GamerIdentDao();
-            Gamer gamer = gamerIdentDao.register(gamerID, firstName, lastName, password, email, curp);
-            System.out.println(gamer);
+            ApplicantDao gamerIdentDao = new ApplicantDao();
+            Applicant applicant = gamerIdentDao.register(gamerID, firstName, lastName, password, email, curp);
+            System.out.println(applicant);
             try{
-                if(gamer == null){
+                if(applicant == null){
                     request.getRequestDispatcher("index.html").forward(request, response);
                 }else{
                     request.getRequestDispatcher("AdminPanel.html").forward(request, response);
