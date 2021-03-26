@@ -7,14 +7,14 @@ import java.sql.DriverManager;
 
 public class MySQLConnection {
     public static Connection getConnection(){
-        String cadena = "jdbc:mysql://localhost:3306/nodelogin?user=root";
+        String cadena = "jdbc:mysql://localhost:3306/thechamber?user=root";
 
         try{
             DriverManager.registerDriver(new Driver());
             return DriverManager.getConnection(cadena);
         }catch(Exception ex){
             //sout
-            System.out.println(ex.getMessage());
+            System.out.println(ex.getClass().getCanonicalName());
         }
         return null;
     }
