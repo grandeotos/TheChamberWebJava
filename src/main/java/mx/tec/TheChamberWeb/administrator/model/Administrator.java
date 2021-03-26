@@ -1,10 +1,10 @@
-package mx.tec.TheChamberWeb.account.model;
+package mx.tec.TheChamberWeb.administrator.model;
 
 import java.io.Serializable;
 
 //1. Implementa la interfaz serializable
 //Superclase Object
-public class Account implements Serializable {
+public class Administrator implements Serializable {
     //2. Encapsular los atributos
     private int id;
     private String user;
@@ -12,12 +12,12 @@ public class Account implements Serializable {
     private String email;
 
     //3. Constructores
-    public Account(String user, String password) {
+    public Administrator(String user, String password) {
         this.user = user;
         this.password = password;
     }
 
-    public Account() {
+    public Administrator() {
     }
 
     //4. Sobreescribir el método toString()

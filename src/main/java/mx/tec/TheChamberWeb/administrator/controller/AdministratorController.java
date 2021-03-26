@@ -1,14 +1,14 @@
-package mx.tec.TheChamberWeb.account.controller;
+package mx.tec.TheChamberWeb.administrator.controller;
 
-import mx.tec.TheChamberWeb.account.dao.AccountDao;
-import mx.tec.TheChamberWeb.account.model.Account;
+import mx.tec.TheChamberWeb.administrator.dao.AdministratorDao;
+import mx.tec.TheChamberWeb.administrator.model.Administrator;
 
 import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(name = "AuthController", value = "/auth")
-public class AccountController extends HttpServlet {
+public class AdministratorController extends HttpServlet {
     private String message;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -25,8 +25,8 @@ public class AccountController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        AccountDao accountDao = new AccountDao();
-        Account cuenta = accountDao.auth(username, password);
+        AdministratorDao administratorDao = new AdministratorDao();
+        Administrator cuenta = administratorDao.auth(username, password);
 
         try{
             if(cuenta == null){
