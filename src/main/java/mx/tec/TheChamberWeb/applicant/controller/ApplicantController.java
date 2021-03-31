@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "GamerIdentController", value = "/gidReg")
+@WebServlet(name = "ApplicantController", value = "/appReg")
 public class ApplicantController extends HttpServlet {
     private String message;
 
